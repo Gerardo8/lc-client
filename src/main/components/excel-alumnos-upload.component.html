@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Captura de alumnos</strong>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Subir Excel</label>
+                <div class="col-md-6 dropFile" (dragover)="false" (dragend)="false" (drop)="onDropFile($event)">
+                    <p class="text-center">
+                        <br>
+                        <strong>Arrastra aqui</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-5"></div>
+                <div class="fileUpload btn btn-default">
+                    <span>Seleccionar archivo</span>
+                    <input type="file" (change)="onChangeFile($event)" class="upload"
+                           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-6">
+                    <button type="button" (click)="onClickUpload()" class="btn btn-success"
+                            [disabled]="!file">Cargar excel
+                    </button>
+                </div>
+            </div>
+            <div class="form-group" *ngIf="file">
+                <div class="col-sm-5"></div>
+                <div class="col-md-6">
+                    <strong>{{file.name}}</strong>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Captura de grupos teor&iacute;a</strong>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()" #grupoTeoriaForm="ngForm">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Academia</label>
+                <div class="col-sm-7">
+                    <select class="form-control" required ngControl="academia"
+                            (change)="onChangeAcademia($event)">
+                        <optgroup label="Academia">
+                            <option *ngFor="#academia of academias" [value]="academia.id">
+                                {{academia.nombre}}
+                            </option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Nombre</label>
+                <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="horarioGrupoTeoria.grupoTeoria.nombre"
+                           class="form-control" placeholder="ENF04A" required
+                           ngControl="nombre">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de inicio</label>
+                <div class="col-sm-7">
+                    <input type="date" [(ngModel)]="horarioGrupoTeoria.grupoTeoria.fechaInicio"
+                           class="form-control" placeholder="375" required
+                           ngControl="fechaInicio">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Turno</label>
+                <div class="col-sm-7">
+                    <select class="form-control" [(ngModel)]="horarioGrupoTeoria.turno" required
+                            ngControl="turno">
+                        <optgroup label="Turno">
+                            <option>Matutino</option>
+                            <option>Vespertino</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Hora de inicio</label>
+                <div class="col-sm-7">
+                    <input type="time" [(ngModel)]="horarioGrupoTeoria.horaInicio"
+                           class="form-control" placeholder="14" required
+                           ngControl="horaInicio">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Hora de fin</label>
+                <div class="col-sm-7">
+                    <input type="time" [(ngModel)]="horarioGrupoTeoria.horaFin"
+                           class="form-control" placeholder="14" required
+                           ngControl="horaFin">
+                </div>
+            </div>
+            <label class="col-sm-5 control-label"></label>
+            <div class="col-sm-7">
+                <button type="submit" class="btn btn-success"
+                        [disabled]="!grupoTeoriaForm.form.valid">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>

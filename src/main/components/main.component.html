@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs">
+    <li *ngFor="#tab of tabs" (click)="selectTab(tab.route)" [class.active]="tab.route === selectedTab">
+        <a role="button">{{tab.title}}</a>
+    </li>
+</ul>
+<div class="pane">
+    <router-outlet></router-outlet>
+</div>

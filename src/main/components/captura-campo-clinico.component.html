@@ -1,0 +1,12 @@
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <campo-clinico-form (submitted)="persistCampoClinico($event)"
+                            [direccionCampoClinico]="direccionCampoClinico">
+        </campo-clinico-form>
+    </div>
+    <div class="col-md-8">
+        <campo-clinico-table [direccionesCamposClinicos]="direccionesCamposClinicos">
+        </campo-clinico-table>
+    </div>
+</div>

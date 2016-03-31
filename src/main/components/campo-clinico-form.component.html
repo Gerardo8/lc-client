@@ -1,0 +1,82 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Captura de campos clinicos</strong>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()" #campoClinicoForm="ngForm">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Instituci&oacute;n</label>
+                <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="direccionCampoClinico.campoClinico.nombre"
+                           class="form-control" placeholder="UNITEC" required
+                           ngControl="nombre">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Calle o avenida</label>
+                <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="direccionCampoClinico.calleAvenida"
+                           class="form-control" placeholder="Av. Central" required
+                           ngControl="calleAvenida">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">N&uacute;mero</label>
+                <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="direccionCampoClinico.numero"
+                           class="form-control" placeholder="375" required
+                           ngControl="numero">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Colonia</label>
+                <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="direccionCampoClinico.colonia"
+                           class="form-control" placeholder="Ejidos Tulpetlac" required
+                           ngControl="colonia">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">C&oacute;digo postal</label>
+                <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="direccionCampoClinico.codigoPostal"
+                           class="form-control" placeholder="55107" required
+                           ngControl="codigoPostal">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Delegaci&oacute;n o municipio</label>
+                <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="direccionCampoClinico.delegacionMunicipio"
+                           class="form-control" placeholder="Ecatepec de Morelos" required
+                           ngControl="delegacionMunicipio">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Entidad federativa</label>
+                <div class="col-sm-7">
+                    <select class="form-control" [(ngModel)]="direccionCampoClinico.entidadFederativa" required
+                            ngControl="entidadFederativa">
+                        <optgroup label="Entidad federativa">
+                            <option>Estado de M&eacute;xico</option>
+                            <option>Ciudad de M&eacute;xico, D.F.</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Referencia</label>
+                <div class="col-sm-7">
+                            <textarea [(ngModel)]="direccionCampoClinico.referencia"
+                                      class="form-control" rows="3" placeholder="(Opcional)">
+                            </textarea>
+                </div>
+            </div>
+            <label class="col-sm-5 control-label"></label>
+            <div class="col-sm-7">
+                <button type="submit" class="btn btn-success"
+                        [disabled]="!campoClinicoForm.form.valid">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>

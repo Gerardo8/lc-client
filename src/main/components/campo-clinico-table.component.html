@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Tabla de campos clinicos</strong>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="active">
+                        <th>Instituci&oacute;n</th>
+                        <th>Calle</th>
+                        <th>Colonia</th>
+                        <th>N&uacute;mero</th>
+                        <th>C&oacute;digo postal</th>
+                        <th>Delegaci&oacute;n o Municipio</th>
+                        <th>Entidad federativa</th>
+                        <th>Referencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="#direccionCampoClinico of direccionesCamposClinicos">
+                        <td>{{direccionCampoClinico.campoClinico.nombre}}</td>
+                        <td>{{direccionCampoClinico.calleAvenida}}</td>
+                        <td>{{direccionCampoClinico.colonia}}</td>
+                        <td>{{direccionCampoClinico.numero}}</td>
+                        <td>{{direccionCampoClinico.codigoPostal}}</td>
+                        <td>{{direccionCampoClinico.delegacionMunicipio}}</td>
+                        <td>{{direccionCampoClinico.entidadFederativa}}</td>
+                        <td>{{direccionCampoClinico.referencia}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<form class="form-horizontal" *ngIf="alumno" (ngSubmit)="onSubmit()" #alumnoForm="ngForm">
+    <div class="form-group">
+        <label class="col-sm-5 control-label">N&uacute;mero de cuenta</label>
+        <div class="col-sm-7">
+            <input disabled type="text" [(ngModel)]="alumno.numeroCuenta"
+                   class="form-control" required
+                   ngControl="numeroCuenta">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label">Nombre</label>
+        <div class="col-sm-7">
+            <input type="text" [(ngModel)]="alumno.nombre"
+                   class="form-control" required
+                   ngControl="nombre">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label">Apellidos</label>
+        <div class="col-sm-7">
+            <input type="text" [(ngModel)]="alumno.apellidos"
+                   class="form-control" required
+                   ngControl="apellidos">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label">Promedio</label>
+        <div class="col-sm-7">
+            <input disabled type="text" [(ngModel)]="alumno.promedio"
+                   class="form-control" required
+                   ngControl="promedio">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label">Academia</label>
+        <div class="col-sm-7">
+            <select class="form-control" [(ngModel)]="academiaId" required ngControl="academiaId"
+                    (change)="onChangeAcademia($event)">
+                <optgroup label="Academia">
+                    <option *ngFor="#academia of academias" [value]="academia.id">
+                        {{academia.nombre}}
+                    </option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label">Campo clinico</label>
+        <div class="col-sm-7">
+            <select class="form-control" [(ngModel)]="campoClinicoId" required ngControl="campoClinicoId"
+                    (change)="onChangeCampoClinico($event)">
+                <optgroup label="Campo clinico">
+                    <option *ngFor="#campoClinico of camposClinicos" [value]="campoClinico.id">
+                        {{campoClinico.nombre}}
+                    </option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label">Grupo pr&aacute;ctica</label>
+        <div class="col-sm-7">
+            <select class="form-control" required ngControl="grupoPractica"
+                    (change)="onChangeGrupoPractica($event)">
+                <optgroup label="Grupo pr&aacute;ctica">
+                    <option *ngFor="#grupoPractica of gruposPractica" [value]="grupoPractica.id">
+                        {{grupoPractica.nombre}}
+                    </option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label">Grupo teor&iacute;a</label>
+        <div class="col-sm-7">
+            <select class="form-control" required ngControl="grupoTeoria"
+                    (change)="onChangeGrupoTeoria($event)">
+                <optgroup label="Grupo teor&iacute;a">
+                    <option *ngFor="#grupoTeoria of gruposTeoria" [value]="grupoTeoria.id">
+                        {{grupoTeoria.nombre}}
+                    </option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+    <label class="col-sm-5 control-label"></label>
+    <div class="col-sm-7">
+        <button type="submit" class="btn btn-success"
+                [disabled]="!alumnoForm.form.valid">Guardar cambios</button>
+        <button class="btn btn-default" (click)="onCancelEdit()">Cancelar</button>
+    </div>
+</form>

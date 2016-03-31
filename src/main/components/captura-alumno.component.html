@@ -1,0 +1,28 @@
+<br>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Registro de alumno</strong>
+    </div>
+    <div class="panel-body">
+        <a class="btn btn-link btn-lg" (click)="goBack()">Atr&aacute;s</a>
+        <br>
+        <div class="row">
+            <div class="col-md-5" *ngIf="formActive">
+                <alumno-form [alumno]="alumno" (updateAlumno)="updateAlumno($event)"
+                             (cancelEditAlumno)="cancelEditAlumno($event)"
+                             (changedAcademia)="setAcademiaId($event)"
+                             (changedCampoClinico)="setCampoClinicoId($event)"
+                             [gruposPractica]="gruposPractica" [gruposTeoria]="gruposTeoria"
+                             (changedGrupoPractica)="setGrupoPractica($event)"
+                             [camposClinicos]="camposClinicos" [academias]="academias"
+                             (changedGrupoTeoria)="setGrupoTeoria($event)">
+                </alumno-form>
+            </div>
+            <div class="col-md-7">
+                <alumno-view [alumno]="alumno" (editAlumno)="editAlumno($event)"
+                             [documentoAlumno]="documentoAlumno" [formActive]="formActive">
+                </alumno-view>
+            </div>
+        </div>
+    </div>
+</div>

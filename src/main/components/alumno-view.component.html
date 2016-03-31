@@ -1,0 +1,42 @@
+<div *ngIf="alumno">
+
+    <h3 class="text-center">{{alumno.nombre}}
+        <small>{{alumno.apellidos}}</small>
+    </h3>
+    <br>
+    <blockquote>
+        <p class="lead text-left">
+            N&uacute;mero de cuenta: {{alumno.numeroCuenta}}
+            <br>
+            Promedio: {{alumno.promedio}}
+        </p>
+        <div *ngIf="alumno.grupoPractica">
+            <p class="lead text-left">
+                <strong>Grupo pr&aacute;ctica</strong>
+                <br>
+                Grupo: {{alumno.grupoPractica.nombre}}
+            </p>
+        </div>
+        <div *ngIf="alumno.grupoTeoria">
+            <p class="lead text-left">
+                <strong>Grupo teor&iacute;a</strong>
+                <br>
+                Grupo: {{alumno.grupoTeoria.nombre}}
+            </p>
+        </div>
+        <!--<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>-->
+    </blockquote>
+</div>
+<div *ngIf="documentoAlumno">
+    <p class="lead"><strong>Documento Word</strong></p>
+    <blockquote>
+        <p class="text-left">
+            {{documentoAlumno.nombre}}
+        </p>
+        <a href="http://localhost:9000/resource/download-documento-alumno/{{documentoAlumno.id}}" class="btn btn-primary" >Descargar documento</a>
+    </blockquote>
+</div>
+
+<div *ngIf="!formActive">
+        <button class="btn btn-primary" (click)="onEdit()">Editar</button>
+</div>

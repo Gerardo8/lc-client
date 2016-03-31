@@ -1,0 +1,10 @@
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <excel-alumnos-upload (changedFile)="handleChangeFile($event)" (draggedFile)="handleDropFile($event)"
+                              (uploadFile)="upload()" [file]="file"></excel-alumnos-upload>
+    </div>
+    <div class="col-md-8">
+        <alumno-table [alumnos]="alumnos" (selectAlumno)="gotoAlumno($event)"></alumno-table>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Tabla de alumnos</strong>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr class="active">
+                    <th>N&uacute;mero de cuenta</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Promedio</th>
+                    <th>Grupo pr&aacute;ctica</th>
+                    <th>Grupo teor&iacute;a</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="#alumno of alumnos" role="button" (click)="onClickAlumno(alumno.id)">
+                    <td>{{alumno.numeroCuenta}}</td>
+                    <td>{{alumno.nombre}}</td>
+                    <td>{{alumno.apellidos}}</td>
+                    <td>{{alumno.promedio}}</td>
+                    <td>{{alumno.grupoPractica?.nombre}}</td>
+                    <td>{{alumno.grupoTeoria?.nombre}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

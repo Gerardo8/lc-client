@@ -1,0 +1,28 @@
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <grupo-practica-form (changedAcademia)="setAcademiaGrupoPractica($event)"
+                             (changedCampoClinico)="setCampoClinico($event)"
+                             (submitted)="persistGrupoPractica($event)"
+                             [camposClinicos]="camposClinicos"
+                             [academias]="academias"
+                             [horarioGrupoPractica]="horarioGrupoPractica">
+        </grupo-practica-form>
+    </div>
+    <div class="col-md-8">
+        <grupo-practica-table [horariosGruposPractica]="horariosGruposPractica">
+        </grupo-practica-table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <grupo-teoria-form (changedAcademia)="setAcademiaGrupoTeoria($event)"
+                           (submitted)="persistGrupoTeoria($event)"
+                           [academias]="academias" [horarioGrupoTeoria]="horarioGrupoTeoria">
+        </grupo-teoria-form>
+    </div>
+    <div class="col-md-8">
+        <grupo-teoria-table [horariosGruposTeoria]="horariosGruposTeoria">
+        </grupo-teoria-table>
+    </div>
+</div>

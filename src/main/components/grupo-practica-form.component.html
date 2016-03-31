@@ -1,0 +1,92 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Captura de grupos pr&aacute;ctica</strong>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()" #grupoPracticaForm="ngForm">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Academia</label>
+                <div class="col-sm-7">
+                    <select class="form-control" required ngControl="academia"
+                            (change)="onChangeAcademia($event)">
+                        <optgroup label="Academia">
+                            <option *ngFor="#academia of academias" [value]="academia.id">
+                                {{academia.nombre}}
+                            </option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Campo clinico</label>
+                <div class="col-sm-7">
+                    <select class="form-control" required ngControl="campoClinico"
+                            (change)="onChangeCampoClinico($event)">
+                        <optgroup label="Campo clinico">
+                            <option *ngFor="#campoClinico of camposClinicos" [value]="campoClinico.id">
+                                {{campoClinico.nombre}}
+                            </option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Nombre</label>
+                <div class="col-sm-7">
+                    <input type="text" [(ngModel)]="horarioGrupoPractica.grupoPractica.nombre"
+                           class="form-control" placeholder="ENF04A" required
+                           ngControl="nombre">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Fecha de inicio</label>
+                <div class="col-sm-7">
+                    <input type="date" [(ngModel)]="horarioGrupoPractica.grupoPractica.fechaInicio"
+                           class="form-control" placeholder="375" required
+                           ngControl="fechaInicio">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Lugares</label>
+                <div class="col-sm-7">
+                    <input type="number" min="1" max="30" [(ngModel)]="horarioGrupoPractica.grupoPractica.lugares"
+                           class="form-control" placeholder="14" required
+                           ngControl="lugares">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Turno</label>
+                <div class="col-sm-7">
+                    <select class="form-control" [(ngModel)]="horarioGrupoPractica.turno" required
+                            ngControl="turno">
+                        <optgroup label="Turno">
+                            <option>Matutino</option>
+                            <option>Vespertino</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Hora de inicio</label>
+                <div class="col-sm-7">
+                    <input type="time" [(ngModel)]="horarioGrupoPractica.horaInicio"
+                           class="form-control" placeholder="14" required
+                           ngControl="horaInicio">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Hora de fin</label>
+                <div class="col-sm-7">
+                    <input type="time" [(ngModel)]="horarioGrupoPractica.horaFin"
+                           class="form-control" placeholder="14" required
+                           ngControl="horaFin">
+                </div>
+            </div>
+            <label class="col-sm-5 control-label"></label>
+            <div class="col-sm-7">
+                <button type="submit" class="btn btn-success"
+                        [disabled]="!grupoPracticaForm.form.valid">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
