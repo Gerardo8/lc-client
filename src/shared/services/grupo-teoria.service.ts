@@ -5,7 +5,6 @@ import {Observable} from 'rxjs/Observable';
 import {Headers} from 'angular2/http';
 import {RequestOptions} from 'angular2/http';
 import {Response} from 'angular2/http';
-import {HorarioGrupoTeoria} from '../model/horario-grupo-teoria';
 @Injectable()
 export class GrupoTeoriaService {
     constructor (private http: Http) {}
@@ -32,13 +31,21 @@ export class GrupoTeoriaService {
 
     }
 
-    persist(horarioGrupoTeoria:HorarioGrupoTeoria) {
+    persist(grupoTeoria:GrupoTeoria) {
 
-        let body = JSON.stringify(horarioGrupoTeoria);
+        let body = JSON.stringify(grupoTeoria);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.grupoUrl, body, options)
+            .map(res => res.text())
+            .catch(this.handleError);
+    }
+
+    delete(grupoTeoriaId:number) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.delete(this.grupoUrl + '/' + grupoTeoriaId,options)
             .map(res => res.text())
             .catch(this.handleError);
     }

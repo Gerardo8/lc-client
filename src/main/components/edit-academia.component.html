@@ -1,0 +1,28 @@
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-11">
+        <strong>Editar academia</strong>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <a class="btn btn-default" (click)="goBack()">Atr&aacute;s</a>
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <academia-edit-form [academia]="academia" (submitted)="updateAcademia()">
+        </academia-edit-form>
+      </div>
+      <div class="col-md-8">
+        <!--<alumno-view [alumno]="alumno" (createDocument)="createDocument()"-->
+        <!--(updateDocument)="updateDocument()" [formActive]="formActive"-->
+        <!--[documentoAlumno]="documentoAlumno">-->
+        <!--</alumno-view>-->
+      </div>
+    </div>
+    <captura-induccion>
+    </captura-induccion>
+  </div>
+</div>

@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label class="col-sm-5 control-label">Nombre</label>
                 <div class="col-sm-7">
-                    <input type="text" [(ngModel)]="horarioGrupoTeoria.grupoTeoria.nombre"
+                    <input type="text" [(ngModel)]="grupoTeoria.nombre"
                            class="form-control" placeholder="ENF04A" required
                            ngControl="nombre">
                 </div>
@@ -28,37 +28,17 @@
             <div class="form-group">
                 <label class="col-sm-5 control-label">Fecha de inicio</label>
                 <div class="col-sm-7">
-                    <input type="date" [(ngModel)]="horarioGrupoTeoria.grupoTeoria.fechaInicio"
+                    <input type="date" [(ngModel)]="grupoTeoria.fechaInicio"
                            class="form-control" placeholder="375" required
                            ngControl="fechaInicio">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-5 control-label">Turno</label>
+                <label class="col-sm-5 control-label">Fecha de fin</label>
                 <div class="col-sm-7">
-                    <select class="form-control" [(ngModel)]="horarioGrupoTeoria.turno" required
-                            ngControl="turno">
-                        <optgroup label="Turno">
-                            <option>Matutino</option>
-                            <option>Vespertino</option>
-                        </optgroup>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-5 control-label">Hora de inicio</label>
-                <div class="col-sm-7">
-                    <input type="time" [(ngModel)]="horarioGrupoTeoria.horaInicio"
-                           class="form-control" placeholder="14" required
-                           ngControl="horaInicio">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-5 control-label">Hora de fin</label>
-                <div class="col-sm-7">
-                    <input type="time" [(ngModel)]="horarioGrupoTeoria.horaFin"
-                           class="form-control" placeholder="14" required
-                           ngControl="horaFin">
+                    <input type="date" [(ngModel)]="grupoTeoria.fechaFin"
+                           class="form-control" placeholder="375" required
+                           ngControl="fechaFin">
                 </div>
             </div>
             <label class="col-sm-5 control-label"></label>

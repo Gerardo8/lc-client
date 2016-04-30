@@ -5,6 +5,7 @@
                               (uploadFile)="upload()" [file]="file"></excel-alumnos-upload>
     </div>
     <div class="col-md-8">
-        <alumno-table [alumnos]="alumnos" (selectAlumno)="gotoAlumno($event)"></alumno-table>
+        <alumno-table [alumnos]="alumnos" (selectAlumno)="gotoAlumno($event)"
+                      (deleteAlumno)="deleteAlumno($event)"></alumno-table>
     </div>
 </div>

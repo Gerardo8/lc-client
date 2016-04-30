@@ -1,0 +1,39 @@
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Fecha Induccion</strong>
+  </div>
+  <div class="panel-body">
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #induccionEditForm="ngForm">
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Fecha de induccion</label>
+        <div class="col-sm-7">
+          <input type="date" [(ngModel)]="induccion.fechaInduccion"
+                 class="form-control" required
+                 ngControl="fechaInduccion">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Hora inicio</label>
+        <div class="col-sm-7">
+          <input type="time" [(ngModel)]="induccion.horaInicio"
+                 class="form-control" required
+                 ngControl="horaInicio">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Hora fin</label>
+        <div class="col-sm-7">
+          <input type="time" [(ngModel)]="induccion.horaFin"
+                 class="form-control" required
+                 ngControl="horaFin">
+        </div>
+      </div>
+      <label class="col-sm-5 control-label"></label>
+      <div class="col-sm-7">
+        <button type="submit" class="btn btn-primary"
+                [disabled]="!induccionEditForm.form.valid">Actualizar</button>
+      </div>
+    </form>
+  </div>
+</div>

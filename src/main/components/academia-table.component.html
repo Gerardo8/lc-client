@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Tabla de academias</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr class="active">
+          <th>Nombre</th>
+          <th>Ciclo</th>
+          <th>Cuatrimestre</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="#academia of academias"  role="button" (click)="onClickAcademia(academia.id)">
+          <td>{{academia.nombre}}</td>
+          <td>{{academia.ciclo}}</td>
+          <td>{{academia.cuatrimestre}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -112,19 +112,34 @@ export class CapturaAlumnoComponent implements OnInit {
         this.alumnoService.update(alumno)
             .subscribe(
                 response => {
-                    this.findDocumentoByAlumnoId(this.currentAlumnoId);
                     this.formActive = false;
                 },
                 error => this.errorMessage = <any>error
             );
     }
 
-    editAlumno(isActive:boolean) {
-        this.formActive = isActive;
+    editAlumno() {
+        this.formActive = true;
     }
 
-    cancelEditAlumno(isActive:boolean) {
-        this.formActive = isActive;
+    createDocument() {
+        this.documentoAlumnoService.persist(this.alumno)
+            .subscribe(
+                response => this.findDocumentoByAlumnoId(this.currentAlumnoId),
+                error => this.errorMessage = <any>error
+            );
+    }
+
+    updateDocument() {
+        this.documentoAlumnoService.update(this.alumno)
+            .subscribe(
+                response => this.findDocumentoByAlumnoId(this.currentAlumnoId),
+                error => this.errorMessage = <any>error
+            );
+    }
+
+    cancelEditAlumno() {
+        this.formActive = false;
     }
 
     getGruposPracticaByAcademiaCampoId() {

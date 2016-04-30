@@ -6,6 +6,6 @@ export class GrupoTeoria {
     nombre:string;
     tipo:string;
     fechaInicio:string;
+    fechaFin:string;
     academia:Academia;
-
 }

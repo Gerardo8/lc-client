@@ -15,12 +15,16 @@ export class AlumnoViewComponent {
 
     @Input() alumno:Alumno;
     @Input() documentoAlumno:DocumentoAlumno;
-    @Input() formActive:boolean;
 
     @Output() editAlumno = new EventEmitter<boolean>();
     @Output() downloadDocumento = new EventEmitter<number>();
+    @Output() updateDocument = new EventEmitter();
+    @Output() createDocument = new EventEmitter();
 
-    onEdit() {
-        this.editAlumno.emit(true);
+    onUpdateDocument() {
+        this.updateDocument.emit({});
+    }
+    onCreateDocument() {
+        this.createDocument.emit({});
     }
 }

@@ -1,0 +1,39 @@
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Academia</strong>
+  </div>
+  <div class="panel-body">
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #academiaEditForm="ngForm">
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Nombre</label>
+        <div class="col-sm-7">
+          <input type="text" [(ngModel)]="academia.nombre"
+                 class="form-control" placeholder="Enfermería en salud pública" required
+                 ngControl="nombre">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Ciclo</label>
+        <div class="col-sm-7">
+          <input type="text" [(ngModel)]="academia.ciclo"
+                 class="form-control" placeholder="16-2" required
+                 ngControl="ciclo">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Cuatrimestre</label>
+        <div class="col-sm-7">
+          <input type="text" [(ngModel)]="academia.cuatrimestre"
+                 class="form-control" placeholder="4" required
+                 ngControl="cuatrimestre">
+        </div>
+      </div>
+      <label class="col-sm-5 control-label"></label>
+      <div class="col-sm-7">
+        <button type="submit" class="btn btn-primary"
+                [disabled]="!academiaEditForm.form.valid">Actualizar</button>
+      </div>
+    </form>
+  </div>
+</div>

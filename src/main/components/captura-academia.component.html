@@ -1,0 +1,12 @@
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <academia-form (submitted)="persistAcademia()"
+                        [academia]="academia">
+    </academia-form>
+  </div>
+  <div class="col-md-8">
+    <academia-table [academias]="academias" (selectAcademia)="gotoAcademia($event)">
+    </academia-table>
+  </div>
+</div>

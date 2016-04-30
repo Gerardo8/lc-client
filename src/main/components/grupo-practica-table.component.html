@@ -9,24 +9,22 @@
                     <tr class="active">
                         <th>Nombre</th>
                         <th>Fecha de inicio</th>
+                        <th>Fecha de fin</th>
                         <th>Lugares</th>
                         <th>Turno</th>
-                        <th>Hora de inicio</th>
-                        <th>Hora de fin</th>
                         <th>Academia</th>
                         <th>Campo Clinico</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="#horarioGrupoPractica of horariosGruposPractica">
-                        <td>{{horarioGrupoPractica.grupoPractica.nombre}}</td>
-                        <td>{{horarioGrupoPractica.grupoPractica.fechaInicio}}</td>
-                        <td>{{horarioGrupoPractica.grupoPractica.lugares}}</td>
-                        <td>{{horarioGrupoPractica.turno}}</td>
-                        <td>{{horarioGrupoPractica.horaInicio}}</td>
-                        <td>{{horarioGrupoPractica.horaFin}}</td>
-                        <td>{{horarioGrupoPractica.grupoPractica.academia.nombre}}</td>
-                        <td>{{horarioGrupoPractica.grupoPractica.campoClinico.nombre}}</td>
+                    <tr *ngFor="#grupoPractica of gruposPractica">
+                        <td>{{grupoPractica.nombre}}</td>
+                        <td>{{grupoPractica.fechaInicio}}</td>
+                        <td>{{grupoPractica.fechaFin}}</td>
+                        <td>{{grupoPractica.lugares}}</td>
+                        <td>{{grupoPractica.turno}}</td>
+                        <td>{{grupoPractica.academia.nombre}}</td>
+                        <td>{{grupoPractica.campoClinico.nombre}}</td>
                     </tr>
                 </tbody>
             </table>

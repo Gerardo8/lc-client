@@ -6,11 +6,11 @@
                              (submitted)="persistGrupoPractica($event)"
                              [camposClinicos]="camposClinicos"
                              [academias]="academias"
-                             [horarioGrupoPractica]="horarioGrupoPractica">
+                             [grupoPractica]="grupoPractica">
         </grupo-practica-form>
     </div>
     <div class="col-md-8">
-        <grupo-practica-table [horariosGruposPractica]="horariosGruposPractica">
+        <grupo-practica-table [gruposPractica]="gruposPractica">
         </grupo-practica-table>
     </div>
 </div>
@@ -18,11 +18,11 @@
     <div class="col-md-4">
         <grupo-teoria-form (changedAcademia)="setAcademiaGrupoTeoria($event)"
                            (submitted)="persistGrupoTeoria($event)"
-                           [academias]="academias" [horarioGrupoTeoria]="horarioGrupoTeoria">
+                           [academias]="academias" [grupoTeoria]="grupoTeoria">
         </grupo-teoria-form>
     </div>
     <div class="col-md-8">
-        <grupo-teoria-table [horariosGruposTeoria]="horariosGruposTeoria">
+        <grupo-teoria-table [gruposTeoria]="gruposTeoria">
         </grupo-teoria-table>
     </div>
 </div>

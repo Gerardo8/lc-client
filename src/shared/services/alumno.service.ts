@@ -51,6 +51,14 @@ export class AlumnoService {
             .catch(this.handleError);
     }
 
+    delete(alumnoId:number) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.delete(this.alumnoUrl + '/' + alumnoId,options)
+          .map(res => res.text())
+          .catch(this.handleError);
+    }
+
     persistAlumnosFromExcel(file:File) : Promise<any> {
 
         return new Promise((resolve, reject) => {

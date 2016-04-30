@@ -66,6 +66,16 @@ export class CargarAlumnosComponent implements OnInit {
 
     }
 
+    deleteAlumno(alumnoId:number) {
+        this.alumnoService.delete(alumnoId)
+            .subscribe(
+                response => {
+                    this.getAlumnos();
+                },
+                error => this.errorMessage = <any>error
+            );
+    }
+
     gotoAlumno(id:number) {
         this.router.navigate(['CapturaAlumno',{id:id}]);
     }

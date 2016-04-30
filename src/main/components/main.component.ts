@@ -6,6 +6,9 @@ import {RouterOutlet} from 'angular2/router';
 import {Router} from 'angular2/router';
 import {CargarAlumnosComponent} from './cargar-alumnos.component';
 import {CapturaAlumnoComponent} from './captura-alumno.component';
+import {CapturaAcademiaComponent} from './captura-academia.component';
+import {EditAcademiaComponent} from './edit-academia.component';
+import {EditInduccionComponent} from './edit-induccion.component';
 @Component({
     moduleId: module.id,
     templateUrl: './main.component.html',
@@ -16,10 +19,15 @@ import {CapturaAlumnoComponent} from './captura-alumno.component';
 
 @RouteConfig([
     {
+        path: '/academia',
+        name: 'Academia',
+        component: CapturaAcademiaComponent,
+        useAsDefault:true
+    },
+    {
         path: '/campo-clinico',
         name: 'CampoClinico',
-        component: CapturaCampoClinicoComponent,
-        useAsDefault:true
+        component: CapturaCampoClinicoComponent
     },
     {
         path: '/grupo',
@@ -35,6 +43,16 @@ import {CapturaAlumnoComponent} from './captura-alumno.component';
         path: '/alumno/:id',
         name: 'CapturaAlumno',
         component: CapturaAlumnoComponent
+    },
+    {
+        path: '/academia/:id',
+        name: 'EditAcademia',
+        component: EditAcademiaComponent
+    },
+    {
+      path: '/induccion/:id',
+      name: 'EditInduccion',
+      component: EditInduccionComponent
     }
 ])
 
@@ -42,6 +60,10 @@ export class MainComponent {
 
     selectedTab:string;
     tabs:Object[] = [
+        {
+            title:'Academia',
+            route:'Academia'
+        },
         {
             title:'Campo Clinico',
             route:'CampoClinico'
@@ -59,7 +81,7 @@ export class MainComponent {
     constructor(
         private router:Router
     ) {
-        this.selectedTab = 'CampoClinico';
+        this.selectedTab = 'Academia';
     }
 
     selectTab(tab:string) {

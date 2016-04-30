@@ -1,15 +1,26 @@
 <br>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <strong>Registro de alumno</strong>
+        <div class="row">
+            <div class="col-md-1">
+                <a class="btn btn-default" (click)="goBack()">Atr&aacute;s</a>
+            </div>
+            <div class="col-md-10 text-center">
+                <h4>Registro de alumno</h4>
+            </div>
+            <div *ngIf="!formActive" class="col-md-1">
+                <button class="btn btn-primary" (click)="editAlumno()">Editar</button>
+            </div>
+            <div *ngIf="formActive">
+                <button class="btn btn-primary" (click)="cancelEditAlumno()">Cancelar</button>
+            </div>
+        </div>
     </div>
     <div class="panel-body">
-        <a class="btn btn-link btn-lg" (click)="goBack()">Atr&aacute;s</a>
         <br>
         <div class="row">
             <div class="col-md-5" *ngIf="formActive">
                 <alumno-form [alumno]="alumno" (updateAlumno)="updateAlumno($event)"
-                             (cancelEditAlumno)="cancelEditAlumno($event)"
                              (changedAcademia)="setAcademiaId($event)"
                              (changedCampoClinico)="setCampoClinicoId($event)"
                              [gruposPractica]="gruposPractica" [gruposTeoria]="gruposTeoria"
@@ -19,8 +30,9 @@
                 </alumno-form>
             </div>
             <div class="col-md-7">
-                <alumno-view [alumno]="alumno" (editAlumno)="editAlumno($event)"
-                             [documentoAlumno]="documentoAlumno" [formActive]="formActive">
+                <alumno-view [alumno]="alumno" (createDocument)="createDocument()"
+                             (updateDocument)="updateDocument()" [formActive]="formActive"
+                             [documentoAlumno]="documentoAlumno">
                 </alumno-view>
             </div>
         </div>

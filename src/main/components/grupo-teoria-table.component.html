@@ -9,20 +9,16 @@
                 <tr class="active">
                     <th>Nombre</th>
                     <th>Fecha de inicio</th>
-                    <th>Turno</th>
-                    <th>Hora de inicio</th>
-                    <th>Hora de fin</th>
+                    <th>Fecha de fin</th>
                     <th>Academia</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="#horarioGrupoTeoria of horariosGruposTeoria">
-                    <td>{{horarioGrupoTeoria.grupoTeoria.nombre}}</td>
-                    <td>{{horarioGrupoTeoria.grupoTeoria.fechaInicio}}</td>
-                    <td>{{horarioGrupoTeoria.turno}}</td>
-                    <td>{{horarioGrupoTeoria.horaInicio}}</td>
-                    <td>{{horarioGrupoTeoria.horaFin}}</td>
-                    <td>{{horarioGrupoTeoria.grupoTeoria.academia.nombre}}</td>
+                <tr *ngFor="#grupoTeoria of gruposTeoria">
+                    <td>{{grupoTeoria.nombre}}</td>
+                    <td>{{grupoTeoria.fechaInicio}}</td>
+                    <td>{{grupoTeoria.fechaFin}}</td>
+                    <td>{{grupoTeoria.academia.nombre}}</td>
                 </tr>
                 </tbody>
             </table>

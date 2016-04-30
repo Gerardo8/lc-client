@@ -15,8 +15,12 @@ export class AlumnoTableComponent {
     @Input() alumnos:Alumno[];
 
     @Output() selectAlumno = new EventEmitter<number>();
+    @Output() deleteAlumno = new EventEmitter<number>();
 
     onClickAlumno(id:number) {
         this.selectAlumno.emit(id);
+    }
+    onDeleteAlumno(id:number) {
+        this.deleteAlumno.emit(id);
     }
 }

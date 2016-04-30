@@ -25,7 +25,6 @@ export class AlumnoFormComponent {
     @Output() updateAlumno = new EventEmitter<Alumno>();
     @Output() changedGrupoPractica = new EventEmitter<number>();
     @Output() changedGrupoTeoria = new EventEmitter<number>();
-    @Output() cancelEditAlumno = new EventEmitter<boolean>();
     @Output() changedAcademia = new EventEmitter<number>();
     @Output() changedCampoClinico = new EventEmitter<number>();
 
@@ -43,10 +42,6 @@ export class AlumnoFormComponent {
 
     onChangeGrupoTeoria(event) {
         this.changedGrupoTeoria.emit(event.target.value);
-    }
-
-    onCancelEdit() {
-        this.cancelEditAlumno.emit(false);
     }
 
     onSubmit() {

@@ -36,6 +36,14 @@ export class CampoClinicoService {
             .catch(this.handleError);
     }
 
+    delete(campoClinicoId:number) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.delete(this.campoClinicoUrl + '/' + campoClinicoId,options)
+            .map(res => res.text())
+            .catch(this.handleError);
+    }
+
 
     private handleError (error: Response) {
         console.error(error);

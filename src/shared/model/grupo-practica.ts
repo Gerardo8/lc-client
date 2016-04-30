@@ -7,6 +7,8 @@ export class GrupoPractica {
     nombre:string;
     tipo:string;
     fechaInicio:string;
+    fechaFin:string;
+    turno:string;
     lugares:number;
     academia:Academia;
     campoClinico:CampoClinico;

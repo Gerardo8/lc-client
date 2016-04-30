@@ -1,0 +1,12 @@
+<br>
+<div class="row">
+  <div class="col-md-4">
+    <induccion-form (submitted)="persistInduccion()"
+                   [induccion]="induccion">
+    </induccion-form>
+  </div>
+  <div class="col-md-8">
+    <induccion-table [inducciones]="inducciones" (selectInduccion)="gotoInduccion($event)">
+    </induccion-table>
+  </div>
+</div>

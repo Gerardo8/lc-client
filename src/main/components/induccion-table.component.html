@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Fechas de induccion</strong>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr class="active">
+          <th>Fecha</th>
+          <th>Hora inicio</th>
+          <th>Hora fin</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="#induccion of inducciones"  role="button" (click)="onClickInduccion(induccion.id)">
+          <td>{{induccion.fechaInduccion}}</td>
+          <td>{{induccion.horaInicio}}</td>
+          <td>{{induccion.horaFin}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

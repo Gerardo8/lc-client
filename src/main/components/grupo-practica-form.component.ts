@@ -1,10 +1,10 @@
 import {Component} from 'angular2/core';
-import {HorarioGrupoPractica} from '../../shared/model/horario-grupo-practica';
 import {Input} from 'angular2/core';
 import {Academia} from '../../shared/model/academia';
 import {CampoClinico} from '../../shared/model/campo-clinico';
 import {Output} from 'angular2/core';
 import {EventEmitter} from 'angular2/core';
+import {GrupoPractica} from '../../shared/model/grupo-practica';
 @Component({
     selector:'grupo-practica-form',
     moduleId: module.id,
@@ -13,17 +13,17 @@ import {EventEmitter} from 'angular2/core';
 
 export class GrupoPracticaFormComponent {
 
-    @Input() horarioGrupoPractica:HorarioGrupoPractica;
+    @Input() grupoPractica:GrupoPractica;
     @Input() academias:Academia;
     @Input() camposClinicos:CampoClinico[];
 
-    @Output() submitted = new EventEmitter<HorarioGrupoPractica>();
+    @Output() submitted = new EventEmitter<GrupoPractica>();
     @Output() changedAcademia = new EventEmitter<number>();
     @Output() changedCampoClinico = new EventEmitter<number>();
 
 
     onSubmit() {
-        this.submitted.emit(this.horarioGrupoPractica);
+        this.submitted.emit(this.grupoPractica);
     }
 
     onChangeAcademia(event) {

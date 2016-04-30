@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {Input} from 'angular2/core';
-import {HorarioGrupoTeoria} from '../../shared/model/horario-grupo-teoria';
+import {GrupoTeoria} from '../../shared/model/grupo-teoria';
 
 @Component({
     selector:'grupo-teoria-table',
@@ -10,6 +10,6 @@ import {HorarioGrupoTeoria} from '../../shared/model/horario-grupo-teoria';
 
 export class GrupoTeoriaTableComponent {
 
-    @Input() horariosGruposTeoria:HorarioGrupoTeoria[];
+    @Input() gruposTeoria:GrupoTeoria[];
 
 }

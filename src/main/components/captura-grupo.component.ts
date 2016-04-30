@@ -6,13 +6,9 @@ import {CampoClinico} from '../../shared/model/campo-clinico';
 import {AcademiaService} from '../../shared/services/academia.service';
 import {CampoClinicoService} from '../../shared/services/campo-clinico.service';
 import {GrupoPracticaService} from '../../shared/services/grupo-practica.service';
-import {HorarioGrupoPractica} from '../../shared/model/horario-grupo-practica';
-import {HorarioGrupoPracticaService} from '../../shared/services/horario-grupo-practica.service';
 import {GrupoPracticaFormComponent} from './grupo-practica-form.component';
 import {GrupoPracticaTableComponent} from './grupo-practica-table.component';
 import {GrupoPractica} from '../../shared/model/grupo-practica';
-import {HorarioGrupoTeoria} from '../../shared/model/horario-grupo-teoria';
-import {HorarioGrupoTeoriaService} from '../../shared/services/horario-grupo-teoria.service';
 import {GrupoTeoriaService} from '../../shared/services/grupo-teoria.service';
 import {GrupoTeoria} from '../../shared/model/grupo-teoria';
 import {GrupoTeoriaFormComponent} from './grupo-teoria-form.component';
@@ -32,9 +28,7 @@ import {GrupoTeoriaTableComponent} from './grupo-teoria-table.component';
         AcademiaService,
         CampoClinicoService,
         GrupoPracticaService,
-        HorarioGrupoPracticaService,
-        GrupoTeoriaService,
-        HorarioGrupoTeoriaService
+        GrupoTeoriaService
     ]
 })
 
@@ -42,34 +36,30 @@ export class CapturaGrupoComponent implements OnInit {
 
     academias:Academia[];
     camposClinicos:CampoClinico[];
-    horarioGrupoPractica:HorarioGrupoPractica = new HorarioGrupoPractica();
-    horariosGruposPractica:HorarioGrupoPractica[];
-    horarioGrupoTeoria:HorarioGrupoTeoria = new HorarioGrupoTeoria();
-    horariosGruposTeoria:HorarioGrupoTeoria[];
+    grupoPractica:GrupoPractica = new GrupoPractica();
+    grupoTeoria:GrupoTeoria = new GrupoTeoria();
+    gruposPractica:GrupoPractica[];
+    gruposTeoria:GrupoTeoria[];
     errorMessage:string;
 
     constructor(
         private academiaService:AcademiaService,
         private campoClinicoService:CampoClinicoService,
         private grupoPracticaService: GrupoPracticaService,
-        private horarioGrupoPracticaService:HorarioGrupoPracticaService,
-        private grupoTeoriaService:GrupoTeoriaService,
-        private horarioGrupoTeoriaService:HorarioGrupoTeoriaService
+        private grupoTeoriaService:GrupoTeoriaService
     ) {}
 
     ngOnInit() {
-        this.horarioGrupoPractica.grupoPractica = new GrupoPractica();
-        this.horarioGrupoTeoria.grupoTeoria = new GrupoTeoria();
         this.getAcademias();
         this.getCamposClinicos();
-        this.getHorariosGruposPractica();
-        this.getHorariosGruposTeoria();
+        this.getGruposPractica();
+        this.getGruposTeoria();
     }
 
     setAcademiaGrupoPractica(id:number) {
         this.academiaService.findById(id)
             .subscribe(
-                response => this.horarioGrupoPractica.grupoPractica.academia = response,
+                response => this.grupoPractica.academia = response,
                 error => this.errorMessage = <any>error
             );
     }
@@ -77,7 +67,7 @@ export class CapturaGrupoComponent implements OnInit {
     setAcademiaGrupoTeoria(id:number) {
         this.academiaService.findById(id)
             .subscribe(
-                response => this.horarioGrupoTeoria.grupoTeoria.academia = response,
+                response => this.grupoTeoria.academia = response,
                 error => this.errorMessage = <any>error
             );
     }
@@ -85,31 +75,31 @@ export class CapturaGrupoComponent implements OnInit {
     setCampoClinico(id:number) {
         this.campoClinicoService.findById(id)
             .subscribe(
-                response => this.horarioGrupoPractica.grupoPractica.campoClinico = response,
+                response => this.grupoPractica.campoClinico = response,
                 error => this.errorMessage = <any>error
             );
     }
 
-    persistGrupoPractica(horarioGrupoPractica:HorarioGrupoPractica) {
-        this.grupoPracticaService.persist(horarioGrupoPractica)
+    persistGrupoPractica(grupoPractica:GrupoPractica) {
+        this.grupoPracticaService.persist(grupoPractica)
             .subscribe(
                 response => {
-                    this.getHorariosGruposPractica();
-                    this.horarioGrupoPractica = new HorarioGrupoPractica();
-                    this.horarioGrupoPractica.grupoPractica = new GrupoPractica();
+                    this.getGruposPractica();
+                    this.grupoPractica = new GrupoPractica();
+                    this.grupoPractica = new GrupoPractica();
                 },
                 error => this.errorMessage = <any>error
             );
 
     }
 
-    persistGrupoTeoria(horarioGrupoTeoria:HorarioGrupoTeoria) {
-        this.grupoTeoriaService.persist(horarioGrupoTeoria)
+    persistGrupoTeoria(grupoTeoria:GrupoTeoria) {
+        this.grupoTeoriaService.persist(grupoTeoria)
             .subscribe(
                 response => {
-                    this.getHorariosGruposTeoria();
-                    this.horarioGrupoTeoria = new HorarioGrupoTeoria();
-                    this.horarioGrupoTeoria.grupoTeoria = new GrupoTeoria();
+                    this.getGruposTeoria();
+                    this.grupoTeoria = new GrupoTeoria();
+                    this.grupoTeoria = new GrupoTeoria();
                 },
                 error => this.errorMessage = <any>error
             );
@@ -132,21 +122,21 @@ export class CapturaGrupoComponent implements OnInit {
             );
     }
 
-    getHorariosGruposPractica() {
-        this.horarioGrupoPracticaService.findAll()
+    getGruposPractica() {
+        this.grupoPracticaService.findAll()
             .subscribe(
                 response => {
-                    this.horariosGruposPractica = response;
+                    this.gruposPractica = response;
                 },
                 error => this.errorMessage = <any>error
 
             );
     }
-    getHorariosGruposTeoria() {
-        this.horarioGrupoTeoriaService.findAll()
+    getGruposTeoria() {
+        this.grupoTeoriaService.findAll()
             .subscribe(
                 response => {
-                    this.horariosGruposTeoria = response;
+                    this.gruposTeoria = response;
                 },
                 error => this.errorMessage = <any>error
 

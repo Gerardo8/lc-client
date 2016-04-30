@@ -33,10 +33,15 @@
         <p class="text-left">
             {{documentoAlumno.nombre}}
         </p>
-        <a href="http://localhost:9000/resource/download-documento-alumno/{{documentoAlumno.id}}" class="btn btn-primary" >Descargar documento</a>
+        <button class="btn btn-primary" (click)="onUpdateDocument()">Actualizar documento</button>
+        <a href="http://localhost:9000/resource/download-documento-alumno/{{documentoAlumno.id}}" class="btn btn-success" >Descargar documento</a>
     </blockquote>
 </div>
 
-<div *ngIf="!formActive">
-        <button class="btn btn-primary" (click)="onEdit()">Editar</button>
+<div *ngIf="!documentoAlumno">
+    <div *ngIf="alumno?.grupoPractica">
+        <div *ngIf="alumno?.grupoTeoria">
+            <button class="btn btn-primary" (click)="onCreateDocument()">Crear documento</button>
+        </div>
+    </div>
 </div>
